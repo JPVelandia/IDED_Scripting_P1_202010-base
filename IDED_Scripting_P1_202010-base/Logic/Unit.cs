@@ -1,4 +1,10 @@
-﻿namespace IDED_Scripting_P1_202010_base.Logic
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IDED_Scripting_P1_202010_base.Logic
 {
     public class Unit
     {
@@ -30,9 +36,20 @@
             MoveRange = _moveRange;
         }
 
+        //  float Attack = BaseAtk + BaseAtkAdd;
+
         public virtual bool Interact(Unit otherUnit)
         {
             return false;
+        }
+
+        public virtual int Limitador(int _atk, int _def, int _spd, int _moveRange)
+        {
+            if (_atk > 255  )
+            {
+                _atk = 255;
+            }
+            return _atk;
         }
 
         public virtual bool Interact(Prop prop) => false;
